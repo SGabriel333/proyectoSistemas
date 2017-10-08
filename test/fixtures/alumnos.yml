@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cant_horas: 1
+  carrera: one
+  datos_personal: one
+
+two:
+  cant_horas: 1
+  carrera: two
+  datos_personal: two
