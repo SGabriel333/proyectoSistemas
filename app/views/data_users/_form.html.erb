@@ -1,0 +1,47 @@
+<%= form_with(model: data_user, local: true) do |form| %>
+  <% if data_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(data_user.errors.count, "error") %> prohibited this data_user from being saved:</h2>
+
+      <ul>
+      <% data_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :data_user_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apeelido %>
+    <%= form.text_field :apeelido, id: :data_user_apeelido %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefono %>
+    <%= form.text_field :telefono, id: :data_user_telefono %>
+  </div>
+
+  <div class="field">
+    <%= form.label :direccion %>
+    <%= form.text_field :direccion, id: :data_user_direccion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :correo %>
+    <%= form.text_field :correo, id: :data_user_correo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :users_id %>
+    <%= form.select :users_id, options_for_select(User.all.map{|c| [c.email, c.id]}, data_user.users_id) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

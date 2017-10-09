@@ -1,0 +1,32 @@
+<%= form_with(model: alumno, local: true) do |form| %>
+  <% if alumno.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(alumno.errors.count, "error") %> prohibited this alumno from being saved:</h2>
+
+      <ul>
+      <% alumno.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :cant_horas %>
+    <%= form.number_field :cant_horas, id: :alumno_cant_horas %>
+  </div>
+
+  <div class="field">
+    <%= form.label :carrera_id %>
+    <%= form.select :carrera_id, options_for_select(Carrera.all.map{|c| [c.nombre, c.id]}, :alumno_carrera_id) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :datos_personal_id %>
+    <%= form.select :datos_personal_id, options_for_select(DatosPersonal.all.map{|c| [c.nombre, c.id]}, :alumno_carrera_id) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @datos_personal.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @datos_personal.apellido %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @datos_personal.telefono %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @datos_personal.direccion %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @datos_personal.user_email%>
+</p>
+
+<%= link_to 'Edit', edit_datos_personal_path(@datos_personal) %> |
+<%= link_to 'Back', datos_personals_path %>
