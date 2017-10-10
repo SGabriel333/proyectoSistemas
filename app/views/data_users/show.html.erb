@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @data_user.nombre %>
+</p>
+
+<p>
+  <strong>Apeelido:</strong>
+  <%= @data_user.apeelido %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @data_user.telefono %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @data_user.direccion %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @data_user.correo %>
+</p>
+
+<p>
+  <strong>Users:</strong>
+  <%= @data_user.user_email %>
+</p>
+
+<%= link_to 'Edit', edit_data_user_path(@data_user) %> |
+<%= link_to 'Back', data_users_path %>

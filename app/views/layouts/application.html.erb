@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+    	<meta charset="UTF'8">
+		<title>Dirección de Extensión e Investigación - FIUNI</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+		<link rel="stylesheet" href="estilos.css">
+
+	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  	</head>
+
+	<body>
+
+
+		<div class="container">
+			<section class="main row">
+				<header class="col-md-2">
+					<br/>
+					<div class="imagen_logo">
+						<%= image_tag "logo2.png", :alt => "universidad", :title => "uni", :width => '140'%>
+					</div>
+					<br/>
+				</header>
+				<header class="col-md-8">
+					<br/>
+					<br/>
+					<h3 ALIGN="center">Dirección de Extensión e Investigación</h3>
+					<h3 ALIGN="center">Facultad de Ingeniería - UNI</h3>
+				</header>
+				<header class="col-md-2">
+					<br/>
+					<div class="imagen_logo">
+						<%= image_tag "FIUNI2.png", :alt => "facu", :title => "fiuni", :width => '130', :align => 'middle'%>
+					</div>
+					<br/>
+				</header>
+			</section>
+		</div>
+
+
+
+		<% if notice %>
+		  <p class="alert alert-success"><%= notice %></p>
+		<% end %>
+		<% if alert %>
+		  <p class="alert alert-danger"><%= alert %></p>
+		<% end %>
+		
+
+
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+		    </button>
+			<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+				<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+					<li class="nav-item active"">
+				    	<a class="nav-link" href="/home/index">Home <span class="sr-only">(current)</span></a>
+			        </li>
+			        <li class="nav-item"">
+					    <a class="nav-link disabled" href="/datos_personals">Datos Personales</a>
+			        </li>
+				    <li class="nav-item"">
+					    <a class="nav-link disabled" href="/alumnos">Alumnos</a>
+				    </li>
+			        <li class="nav-item"">
+					    <a class="nav-link disabled" href="/carreras">Carrera</a>
+				    </li>
+			    </ul>
+
+				<ul class="nav navbar-nav navbar-right">
+					<nav class="navbar navbar-light bg-faded">
+						<form class="form-inline">
+							
+								<% if user_signed_in? %>
+									Logged in as <strong><%= current_user.email %></strong>.
+								   	<%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link', :class => 'btn btn-outline-success' %> |
+									<%= link_to 'Sign out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete', :class => 'navbar-link', :class => 'btn btn-outline-secondary' %>
+								<% else %>
+									<%= button_to "Sign up", new_user_registration_path, :class => 'navbar-link', :class => 'btn btn-outline-success'  %> |
+									<%= button_to "Sign in", new_user_session_path, :class => 'navbar-link', :class => 'btn btn-outline-secondary'  %>
+								<% end %>
+							
+						</form>
+					</nav>
+					
+			    </ul>
+
+			</div>
+
+				  	
+
+		</nav>
+    	  <%= yield %>
+
+
+
+    	  
+  	</body>
+</html>
