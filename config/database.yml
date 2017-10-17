@@ -21,16 +21,34 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+
+development:
+  <<: *default
+  database: proyectoSistemas_development
+  pool: 5
+  username: postgres
+  password: ternerita
+
+
+  username: postgres
+  password: kumagai12
+  port: <%= ENV.fetch("PORT") { 3000 } %>
+
 development:
   <<: *default
   database: p_development
   username: postgres
-  password: 1234
+  password: kumagai12
+
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
+
+  #username: algo
+
   #username: unisoft
+
 
   # The password associated with the postgres role (username).
   #password:
@@ -58,9 +76,16 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+
+  database: proyectoSistemas_test
+  pool: 5
+  username: postgres
+  password: ternerita
+
   database: p_test
   username: postgres
-  password: 1234
+  password: kumagai12
+
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -82,6 +107,12 @@ test:
 #
 production:
   <<: *default
+
+  database: proyectoSistemas_production
+  username: postgres
+  password: ternerita
+
   database: p_production
-  username: p
-  password: <%= ENV['P_DATABASE_PASSWORD'] %>
+  username: postgres
+  password: kumagai12
+

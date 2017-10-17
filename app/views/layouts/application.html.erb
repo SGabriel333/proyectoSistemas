@@ -5,7 +5,7 @@
     	<meta charset="UTF'8">
 		<title>Dirección de Extensión e Investigación - FIUNI</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-	
+		<link rel="stylesheet" href="estilos.css">
 
 	    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -13,7 +13,7 @@
 
 	<body>
 
-	<header>
+
 		<div class="container">
 			<section class="main row">
 				<header class="col-md-2">
@@ -60,7 +60,7 @@
 				    	<a class="nav-link" href="/home/index">Home <span class="sr-only">(current)</span></a>
 			        </li>
 			        <li class="nav-item"">
-					    <a class="nav-link disabled" href="/users">Registrar Usuarios</a>
+					    <a class="nav-link disabled" href="/datos_personals">Datos Personales</a>
 			        </li>
 				    <li class="nav-item"">
 					    <a class="nav-link disabled" href="/alumnos">Alumnos</a>
@@ -73,14 +73,16 @@
 				<ul class="nav navbar-nav navbar-right">
 					<nav class="navbar navbar-light bg-faded">
 						<form class="form-inline">
+							
 								<% if user_signed_in? %>
-		  						Logged in as <strong><%= current_user.email %></strong>.
-		 				 		<%= link_to 'Edit profile', edit_user_path(current_user), :class => 'navbar-link' %> |
-		 						<%= link_to "Logout", destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: :delete, :class => 'navbar-link'  %>
+									Logged in as <strong><%= current_user.email %></strong>.
+								   	<%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link', :class => 'btn btn-outline-success' %> |
+									<%= link_to 'Sign out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete', :class => 'navbar-link', :class => 'btn btn-outline-secondary' %>
 								<% else %>
-		  						<%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+									<%= button_to "Sign up", new_user_registration_path, :class => 'navbar-link', :class => 'btn btn-outline-success'  %> |
+									<%= button_to "Sign in", new_user_session_path, :class => 'navbar-link', :class => 'btn btn-outline-secondary'  %>
 								<% end %>
-								
+							
 						</form>
 					</nav>
 					
@@ -91,7 +93,6 @@
 				  	
 
 		</nav>
-		</header>
     	  <%= yield %>
 
 
