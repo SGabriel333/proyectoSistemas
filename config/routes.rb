@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :alumnos
   resources :carreras
   resources :datos_personals
+  resources :user
   get 'home/index'
 
   root to: 'home#index'
