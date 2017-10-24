@@ -59,9 +59,14 @@
 					<li class="nav-item active"">
 				    	<a class="nav-link" href="/home/index">Home <span class="sr-only">(current)</span></a>
 			        </li>
-			        <li class="nav-item"">
+			<% if user_signed_in? %>
+			        <%if can? :read,@users%>
+				    <li class="nav-item">
 					    <a class="nav-link disabled" href="/user">Registrar Usuarios</a>
 			        </li>
+			        <%end%>
+			    
+			   <%end%>
 				    <li class="nav-item"">
 					    <a class="nav-link disabled" href="/alumnos">Alumnos</a>
 				    </li>
@@ -78,10 +83,9 @@
 									Logged in as <strong><%= current_user.email %></strong>.
 								   	<%= link_to 'Edit profile', edit_user_path(current_user), :class => 'navbar-link', :class => 'btn btn-outline-success' %> |
 									<%= link_to 'Sign out', destroy_user_session_path(:authenticity_token => form_authenticity_token()), method: 'delete', :class => 'navbar-link', :class => 'btn btn-outline-secondary' %>
-								<% else %>
-									<%= button_to "Sign in", new_user_session_path, :class => 'navbar-link', :class => 'btn btn-outline-secondary'  %>
-								<% end %>
-							
+									<%else%>
+									<%= link_to "Sign in", new_user_session_path, :class => 'navbar-link', :class => 'btn btn-outline-secondary'  %>
+								<%end%>
 						</form>
 					</nav>
 					
