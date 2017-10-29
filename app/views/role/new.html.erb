@@ -1,0 +1,10 @@
+ <%= form_for @role, url: {action: "create"} do |f|%> 
+  <div class="field">
+    <%= f.label "Nombre" %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+   <div class="actions">
+    <%= f.submit "Agregar" %>
+  </div>
+  <%end%>
+
