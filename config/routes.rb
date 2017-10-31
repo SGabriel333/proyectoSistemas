@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :alumnos
+  resources :universitarios
   resources :carreras
  
   resources :user
