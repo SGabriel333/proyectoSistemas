@@ -15,10 +15,43 @@ ActiveRecord::Schema.define(version: 20171017220100) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "alumnos", force: :cascade do |t|
+    t.integer "cant_horas"
+    t.bigint "carrera_id"
+    t.bigint "datos_personal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["carrera_id"], name: "index_alumnos_on_carrera_id"
+    t.index ["datos_personal_id"], name: "index_alumnos_on_datos_personal_id"
+  end
+
   create_table "carreras", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "data_users", force: :cascade do |t|
+    t.string "nombre"
+    t.string "apeelido"
+    t.string "telefono"
+    t.string "direccion"
+    t.string "correo"
+    t.bigint "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["users_id"], name: "index_data_users_on_users_id"
+  end
+
+  create_table "datos_personals", force: :cascade do |t|
+    t.string "nombre"
+    t.string "apellido"
+    t.string "telefono"
+    t.string "direccion"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_datos_personals_on_user_id"
   end
 
   create_table "homes", force: :cascade do |t|
@@ -65,4 +98,8 @@ ActiveRecord::Schema.define(version: 20171017220100) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "alumnos", "carreras"
+  add_foreign_key "alumnos", "datos_personals"
+  add_foreign_key "data_users", "users", column: "users_id"
+  add_foreign_key "datos_personals", "users"
 end

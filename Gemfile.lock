@@ -9,7 +9,6 @@ GIT
 
 GEM
   remote: http://rubygems.org/
-  remote: https://rubygems.org/
   specs:
     actioncable (5.1.4)
       actionpack (= 5.1.4)
@@ -85,6 +84,8 @@ GEM
     erubi (1.6.1)
     execjs (2.7.0)
     ffi (1.9.18-x86-mingw32)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.6)
@@ -208,13 +209,14 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise (~> 4.3)
+  font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.1)
-  pg (~> 0.18)
+  pg
   puma (~> 3.4)
   rails (~> 5.1.1)
   rolify (~> 5.1)
-  sass-rails (~> 5.0)
+  sass-rails (>= 3.2)
   selenium-webdriver
   turbolinks (~> 5)
   tzinfo-data

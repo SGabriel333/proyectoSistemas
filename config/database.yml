@@ -23,9 +23,10 @@ default: &default
 
 development:
   <<: *default
-  database: p_development
+  database: proyecto_development
   username: postgres
-  password: 1234
+  password: enzolandia
+
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -58,9 +59,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: p_test
+  database: proyecto_test
   username: postgres
-  password: 1234
+  password: enzolandia
+
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -83,5 +85,6 @@ test:
 production:
   <<: *default
   database: p_production
-  username: p
-  password: <%= ENV['P_DATABASE_PASSWORD'] %>
+  username: postgres
+  password: enzolandia 
+
