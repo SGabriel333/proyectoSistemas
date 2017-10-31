@@ -1,18 +1,18 @@
 class UserController < ApplicationController
+  layout 'user'
    before_action :authenticate_user!
    before_action :set_user, only: [:show, :edit, :update,:destroy]
    protect_from_forgery with: :null_session, only: [:create]
 
   def index
 		@users=User.all
-    authorize! :read, @users
+#    authorize! :read, @users
 	end
   
 
   # GET /user/new
   def new
     @user = User.new
-    @role = Role.new
   end
 # GET /user/
   def show
@@ -26,7 +26,7 @@ class UserController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-    @user.add_role(params[:user][:role])
+    @user.add_role(params[:role])
     @user.save
     redirect_to user_index_path
   end

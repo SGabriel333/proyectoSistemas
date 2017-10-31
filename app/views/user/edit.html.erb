@@ -35,6 +35,10 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+  <%= select_tag :role, options_from_collection_for_select(Role.all,"name","name") %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Actualizar" %>
   </div>
