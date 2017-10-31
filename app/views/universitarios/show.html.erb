@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @universitario.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @universitario.apellido %>
+</p>
+
+<p>
+  <strong>Ci:</strong>
+  <%= @universitario.ci %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @universitario.correo %>
+</p>
+
+<p>
+  <strong>Cant horas:</strong>
+  <%= @universitario.cant_horas %>
+</p>
+
+<p>
+  <strong>Carrera:</strong>
+  <%= @universitario.carrera %>
+</p>
+
+<%= link_to 'Edit', edit_universitario_path(@universitario) %> |
+<%= link_to 'Back', universitarios_path %>
