@@ -1,0 +1,47 @@
+<%= form_with(model: universitario, local: true) do |form| %>
+  <% if universitario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(universitario.errors.count, "error") %> prohibited this universitario from being saved:</h2>
+
+      <ul>
+      <% universitario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :universitario_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apellido %>
+    <%= form.text_field :apellido, id: :universitario_apellido %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ci %>
+    <%= form.number_field :ci, id: :universitario_ci %>
+  </div>
+
+  <div class="field">
+    <%= form.label :correo %>
+    <%= form.text_field :correo, id: :universitario_correo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cant_horas %>
+    <%= form.number_field :cant_horas, id: :universitario_cant_horas %>
+  </div>
+
+  <div class="field">
+    <%= form.label :carrera_id %>
+    <%= form.select :carrera_id,  options_for_select(Carrera.all.map{ |c| [c.nombre, c.id]}) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
-layout 'user'
+
+layout 'index'
+
+	before_action :authenticate_user!
 protect_from_forgery with: :null_session
 before_action :authenticate_user!
   def index
